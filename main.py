@@ -8,10 +8,10 @@ pages = pdfReader.numPages
 speaker = pyttsx3.init()
 
 print('The Book comprises ',pages,' pages')
-startPage = int(input('Which page you want to start from: ')
+startPage = int(input('Which page you want to start from: '))
 
 if startPage > pages or startPage <= 0:
-  while(startPage <= pages and satrtPage > 0):
+  while(startPage <= pages and startPage > 0):
     startPage = int(input('Please Enter a valid Page number:- '))
 
 for num in range(startPage, pages):
