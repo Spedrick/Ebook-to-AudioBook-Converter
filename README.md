@@ -6,8 +6,8 @@ This library basically reads out any piece of text and converts it to .mp3 file.
 So I started planning how the script should look like.
 
 -> Allow user to pick a .pdf file
--> Convert the file into one string
--> Output .mp3 file.
+\n-> Convert the file into one string
+\n-> Output .mp3 file.
 
 
 
