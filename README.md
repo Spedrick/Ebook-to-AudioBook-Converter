@@ -1,25 +1,23 @@
 # Ebook-to-AudioBook-Converter
 
-A practise program to learn pyPDF.
+A while ago I was messing around with google's Text to Speech python library.
+This library basically reads out any piece of text and converts it to .mp3 file. Then I started thinking of making something useful out of it.
 
---> Copy the Ebook and paste it in the directory of the main program.
+So I started planning how the script should look like.
 
---> Rename the book as 'ebook.pdf'
-
---> Run the program.
+-> Allow user to pick a .pdf file
+-> Convert the file into one string
+-> Output .mp3 file.
 
 
 
 # Requirements
 
---> pyttsx3
-
---> pyPDF2
 ```
-pip install pyttsx3
+pip install pdftotext
 ```
 ```
-pip install pyPDF2
+pip install gtts
 ```
 
 
