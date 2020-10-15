@@ -1,21 +1,17 @@
-import pyttsx3
-import pyPDF2
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
+import pdftotext
+from gtts import gTTS
 
-book = open('ebook.pdf','rb')
-pdfReader = pyPDF2.PdfFileReader(book)
-pages = pdfReader.numPages
+Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+filelocation = askopenfilename() # open the dialog GUI
 
-speaker = pyttsx3.init()
+with open(filelocation, "rb") as f:  # open the file in reading (rb) mode and call it f
+    pdf = pdftotext.PDF(f)  # store a text version of the pdf file f in pdf variable
 
-print('The Book comprises ',pages,' pages')
-startPage = int(input('Which page you want to start from: '))
+string_of_text = ''
+for text in pdf:
+    string_of_text += text
 
-if startPage > pages or startPage <= 0:
-  while(startPage <= pages and startPage > 0):
-    startPage = int(input('Please Enter a valid Page number:- '))
-
-for num in range(startPage, pages):
-  page = pdfReader.getPage(num)
-  text = page.extractText()
-  speaker.say(text)
-  speaker.runAndWait()
+final_file = gTTS(text=string_of_text, lang='en')  # store file in variable
+final_file.save("Generated Speech.mp3")  # save file to computer
